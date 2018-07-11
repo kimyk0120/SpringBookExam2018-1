@@ -1,0 +1,11 @@
+/bin/
+/.gradle/
+/.settings/
+/.classpath
+/.project
+/target
+/Users
+/build/
+/bower_components/
+/src/main/webapp/lib/
+/src/jdbc-mysql.properties
