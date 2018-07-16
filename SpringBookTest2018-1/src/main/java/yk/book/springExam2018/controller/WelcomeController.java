@@ -1,5 +1,7 @@
 package yk.book.springExam2018.controller;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +26,15 @@ public class WelcomeController {
 	@Autowired
 	WelcomeService service;
 	
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) throws Exception {
-		System.out.println(service.getHelloMsg());
-		return null;
+		logger.info("Welcome home! The client locale is {}.", locale);
+		res.setContentType(type);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
+		return "index";
 	}
 	
 	
