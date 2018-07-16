@@ -1,10 +1,5 @@
 package yk.book.springExam2018.controller;
 
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,11 +17,18 @@ public class EchoController {
 	private static final Logger logger = LoggerFactory.getLogger(EchoController.class);
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String viewInput(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public String viewInput(Model model) throws Exception {
 		logger.info("viewInput");
 		EchoForm form = new EchoForm();
 		model.addAttribute(form);
 		return "echo/input";
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public String viewInput(EchoForm form) throws Exception {
+		logger.info("viewInputPOST");	
+		System.out.println("form.getText(): " + form.getText());
+		return "echo/output";
 	}
 	
 	
