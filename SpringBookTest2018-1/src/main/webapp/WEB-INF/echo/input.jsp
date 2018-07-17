@@ -9,6 +9,7 @@
 		<div>text input</div>
 		<div>
 			<form:input path="text"/>
+			<form:errors path="text"/>
 		</div>
 		<div>
 			<form:button>send</form:button>

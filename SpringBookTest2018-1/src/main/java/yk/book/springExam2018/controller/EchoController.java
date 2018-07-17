@@ -1,9 +1,12 @@
 package yk.book.springExam2018.controller;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,9 +28,12 @@ public class EchoController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String viewInput(EchoForm form) throws Exception {
+	public String viewInput(@Valid EchoForm form, BindingResult result) throws Exception {
 		logger.info("viewInputPOST");	
-		System.out.println("form.getText(): " + form.getText());
+		
+		if(result.hasErrors()){
+			return "echo/input";
+		}
 		return "echo/output";
 	}
 	
