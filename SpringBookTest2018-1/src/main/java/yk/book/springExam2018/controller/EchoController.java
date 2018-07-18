@@ -29,6 +29,8 @@ public class EchoController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String viewInput(@Valid EchoForm form, BindingResult result) throws Exception {
+		// BindingResult 참고 :  https://okky.kr/article/341115 , http://springsource.tistory.com/18
+		
 		logger.info("viewInputPOST");	
 		
 		if(result.hasErrors()){
