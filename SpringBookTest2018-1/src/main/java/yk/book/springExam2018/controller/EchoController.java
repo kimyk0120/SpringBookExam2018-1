@@ -21,6 +21,7 @@ public class EchoController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewInput(Model model) throws Exception {
+		
 		logger.info("viewInput");
 		EchoForm form = new EchoForm();
 		model.addAttribute(form);

@@ -12,12 +12,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import yk.book.springExam2018.service.WelcomeService;
 
 @Controller
+@RequestMapping("welcome")
 public class WelcomeController {
 
 	public static final String type = "application/json;charset=utf-8";
@@ -26,7 +29,7 @@ public class WelcomeController {
 	@Autowired
 	WelcomeService service;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		res.setContentType(type);
@@ -37,6 +40,13 @@ public class WelcomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "pathVarTest/{id}", method = RequestMethod.GET)
+	public String pathVarTest(@PathVariable String id, Model model, @RequestParam String testformat) throws Exception {
+		
+		logger.info("id : " + id);
+		logger.info("testformat : " + testformat);
+		return "index";
+	}
 	
 	
 	
