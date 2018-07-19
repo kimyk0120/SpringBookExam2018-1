@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="yk.book.springExam2018" />
+	<!-- <context:component-scan base-package="yk.book.springExam2018" /> --> <!-- WebMvcConfig.java에서 수행 -->
 	
 	
 	
