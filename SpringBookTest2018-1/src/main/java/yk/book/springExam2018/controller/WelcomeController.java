@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,7 +31,7 @@ public class WelcomeController {
 	WelcomeService service;
 	
 	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public String home(Locale locale, Model model, BindingResult bindResult, HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		res.setContentType(type);
 		Date date = new Date();
@@ -41,10 +42,11 @@ public class WelcomeController {
 	}
 	
 	@RequestMapping(value = "pathVarTest/{id}", method = RequestMethod.GET)
-	public String pathVarTest(@PathVariable String id, Model model, @RequestParam String testformat) throws Exception {
+	public String pathVarTest(@PathVariable String id
+			, @RequestParam(value="format",required=true) String formatStr) throws Exception {
 		
 		logger.info("id : " + id);
-		logger.info("testformat : " + testformat);
+		logger.info("formatStr : " + formatStr);
 		return "index";
 	}
 	
