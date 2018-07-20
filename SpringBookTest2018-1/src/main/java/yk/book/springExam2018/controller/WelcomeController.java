@@ -10,15 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import yk.book.springExam2018.service.WelcomeService;
+import yk.book.springExam2018.vo.EchoForm;
 
 @Controller
 @RequestMapping("welcome")
@@ -43,12 +49,30 @@ public class WelcomeController {
 	
 	@RequestMapping(value = "pathVarTest/{id}", method = RequestMethod.GET)
 	public String pathVarTest(@PathVariable String id
-			, @RequestParam(value="format",required=true) String formatStr) throws Exception {
-		
+			, @RequestParam(value="format",required=true) String formatStr
+			) throws Exception {
 		logger.info("id : " + id);
 		logger.info("formatStr : " + formatStr);
 		return "index";
 	}
+	
+	@InitBinder
+	public void initBinfer(WebDataBinder binder) {
+		binder.addCustomFormatter(new DateFormatter("yyyyMMdd"),"targetDate");
+	}
+	
+	@RequestMapping(value = "create", method = RequestMethod.GET)
+	public String create(RedirectAttributes redirectAttributes 
+			) throws Exception {
+		redirectAttributes.addFlashAttribute("test", "test addFlashAttribute");
+		return "redirect:redirectReception?test";
+	}
+
+	@RequestMapping(value = "redirectReception", method = RequestMethod.GET,params="test")
+	public String redirectReception() throws Exception { 
+		return "index";
+	}
+	
 	
 	
 	
