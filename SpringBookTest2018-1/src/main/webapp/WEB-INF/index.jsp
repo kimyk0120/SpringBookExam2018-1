@@ -16,5 +16,11 @@
 			<a href="<c:url value='/echo' />">go echo app</a>	
 		</li>
 	</ul>
+	
+<script type="text/javascript">
+(function(){
+	
+})();	
+</script>	
 </body>
 </html>

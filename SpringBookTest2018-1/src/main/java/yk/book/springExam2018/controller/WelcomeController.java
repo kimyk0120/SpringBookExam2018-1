@@ -47,6 +47,8 @@ public class WelcomeController {
 		return "index";
 	}
 	
+	
+	// PathVariable
 	@RequestMapping(value = "pathVarTest/{id}", method = RequestMethod.GET)
 	public String pathVarTest(@PathVariable String id
 			, @RequestParam(value="format",required=true) String formatStr
@@ -61,15 +63,16 @@ public class WelcomeController {
 		binder.addCustomFormatter(new DateFormatter("yyyyMMdd"),"targetDate");
 	}
 	
+	// RedirectAttributes
 	@RequestMapping(value = "create", method = RequestMethod.GET)
-	public String create(RedirectAttributes redirectAttributes 
+	public String redirectAttributes(RedirectAttributes redirectAttributes 
 			) throws Exception {
 		redirectAttributes.addFlashAttribute("test", "test addFlashAttribute");
 		return "redirect:redirectReception?test";
 	}
 
-	@RequestMapping(value = "redirectReception", method = RequestMethod.GET,params="test")
-	public String redirectReception() throws Exception { 
+	@RequestMapping(value = "redirectReception", method = RequestMethod.GET,params={"test"})
+	public String getRedirectAttributes() throws Exception { 
 		return "index";
 	}
 	
