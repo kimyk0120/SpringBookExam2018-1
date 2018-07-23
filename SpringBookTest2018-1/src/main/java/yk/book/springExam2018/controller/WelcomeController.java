@@ -38,7 +38,7 @@ public class WelcomeController {
 	WelcomeService service;
 	
 	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, BindingResult bindResult, HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public String home(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		res.setContentType(type);
 		Date date = new Date();
@@ -46,6 +46,19 @@ public class WelcomeController {
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
 		return "index";
+	}
+	
+	
+	// redirect
+	@RequestMapping("homeRdrs")
+	public String homeRdrs(){
+		return "redirect:index";
+	}
+
+	// foward
+	@RequestMapping("homeFoward")
+	public String homeFoward(){
+		return "redirect:index";
 	}
 	
 	
@@ -71,6 +84,8 @@ public class WelcomeController {
 		redirectAttributes.addFlashAttribute("test", "test addFlashAttribute");
 		return "redirect:redirectReception?test";
 	}
+	
+	
 
 	@RequestMapping(value = "redirectReception", method = RequestMethod.GET,params={"test"})
 	public String getRedirectAttributes() throws Exception { 
@@ -78,13 +93,29 @@ public class WelcomeController {
 	}
 	
 	
-	@RequestMapping("create")
-	public String form(Model model){
-		model.addAttribute(new AccountCreateForm());
-		return "account/creatForm";
-	}
+//	@RequestMapping("create")
+//	public String form(Model model){
+//		model.addAttribute(new AccountCreateForm());
+//		return "account/creatForm";
+//	}
+	
+	
+	
 	
 	
 	
 	
 }//.class
+
+
+
+
+
+
+
+
+
+
+
+
+//endDom
