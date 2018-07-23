@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import yk.book.springExam2018.service.WelcomeService;
+import yk.book.springExam2018.vo.AccountCreateForm;
 import yk.book.springExam2018.vo.EchoForm;
 
 @Controller
@@ -64,7 +65,7 @@ public class WelcomeController {
 	}
 	
 	// RedirectAttributes
-	@RequestMapping(value = "create", method = RequestMethod.GET)
+	@RequestMapping(value = "redirectReceptionCreate", method = RequestMethod.GET)
 	public String redirectAttributes(RedirectAttributes redirectAttributes 
 			) throws Exception {
 		redirectAttributes.addFlashAttribute("test", "test addFlashAttribute");
@@ -77,6 +78,11 @@ public class WelcomeController {
 	}
 	
 	
+	@RequestMapping("create")
+	public String form(Model model){
+		model.addAttribute(new AccountCreateForm());
+		return "account/creatForm";
+	}
 	
 	
 	
