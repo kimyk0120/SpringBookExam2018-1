@@ -16,6 +16,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
 		registry.jsp();
 	} 
 	
-	
+	 
 	
 }//.class
