@@ -59,7 +59,7 @@
   </filter-mapping>
     
   
-  <!-- jsp inclide -->
+  <!-- jsp include -->
   <jsp-config>
   	<jsp-property-group>
   		<url-pattern>*.jsp</url-pattern>

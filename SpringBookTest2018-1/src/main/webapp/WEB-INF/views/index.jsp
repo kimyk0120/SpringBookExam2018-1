@@ -1,7 +1,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>index</title>
+	<link rel="shortcut icon" href="/resources/icon/favicon.ico">
 </head>
 <body>
 	<h1>
