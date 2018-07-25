@@ -12,6 +12,26 @@ public class EchoForm implements Serializable{
 	@NotEmpty
 	@Size(max=100)
 	private String text;
+	
+	private String password;
+	private String textAreaVal;
+	
+	
+	public String getTextAreaVal() {
+		return textAreaVal;
+	}
+
+	public void setTextAreaVal(String textAreaVal) {
+		this.textAreaVal = textAreaVal;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getText() {
 		return text;

@@ -5,3 +5,4 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<link rel="shortcut icon" href="/resources/icon/favicon.ico">
