@@ -1,1 +1,12 @@
-EL : ${...}, #{...}
+//memo
+
+# EL : ${...}, #{...}
+
+# view Templates - jsp, thymeLeaf, velocity, freemaker ..
+
+
+
+
+
+
+
