@@ -5,6 +5,10 @@
 <title>error</title>
 </head>
 <body>
-<h3>default error page</h3>
+
+<h3>error page</h3>
+
+<p>${errMsg }</p>
+
 </body>
 </html>
