@@ -11,14 +11,16 @@ public class GlobalExceptionHandler {
 
 		
 		@ExceptionHandler
-		@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+		@ResponseStatus(HttpStatus.NOT_FOUND)
 		public String handleException(Exception e,Model model){
 			
 			model.addAttribute("errMsg", e.getMessage());
 			return "/error/systemError";
 		}
 		
-	
+		
+		
+		
 	
 }//.class
 
