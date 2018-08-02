@@ -40,6 +40,7 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  
   <!-- character encodig -->
   <filter>
   	<filter-name>CharacterEncodingFilter</filter-name>
@@ -55,6 +56,18 @@
   </filter>
   <filter-mapping>
   	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  <!-- HiddenHttpMethodFilter :  PUT, DELETE method 사용 -->
+  <filter>
+  	<filter-name>HiddenHttpMethodFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+    <filter-mapping>
+  	<filter-name>HiddenHttpMethodFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
     
