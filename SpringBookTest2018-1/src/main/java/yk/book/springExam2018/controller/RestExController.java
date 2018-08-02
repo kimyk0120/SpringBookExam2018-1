@@ -29,9 +29,9 @@ public class RestExController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> createBook(
-			@Validated @RequestBody BookResouce newResouce) throws Exception{
+			@Validated BookResouce newResouce) throws Exception{
 		System.out.println("createBook");
-		
+		System.out.println(newResouce.getBookId());
 		BookResouce cResource = new BookResouce();
 		
 		return null;
