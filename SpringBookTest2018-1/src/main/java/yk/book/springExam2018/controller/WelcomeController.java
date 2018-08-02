@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import yk.book.springExam2018.service.WelcomeService;
+import yk.book.springExam2018.service.BookService;
 import yk.book.springExam2018.vo.EchoForm;
 
 @Controller
@@ -36,7 +36,7 @@ public class WelcomeController {
 	private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 	
 	@Autowired
-	WelcomeService service;
+	BookService service;
 
 	
 	@Bean
